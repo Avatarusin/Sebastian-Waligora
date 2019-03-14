@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+
 * {
     margin: 0;
     padding: 0;
@@ -7,20 +9,27 @@
 body {
     position: relative;
     width: 100;
-    height: 100vh;
+    min-height: 100vh;
+    background: url("../img/background.jpg") no-repeat center / cover;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
 }
 
 .navbar {
+    height: 150px;
     display: flex;
     flex-direction: column;
     text-align: center;
     background-color: #7FDBFF;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
 .navbar h1 {
-    height: 10vh;
-    font-size: 2.4rem;
-    padding: 2vh;
+    width: 100%;
+    min-height: 40px;
+    font-size: 40px;
+    padding: 10px;
+    margin-bottom: 10px;
     color: #0074D9;
 }
 
@@ -30,7 +39,7 @@ body {
     align-items: center;
     text-align: center;
     width: 100%;
-    margin: 0 auto 2vh;
+    margin: 0 auto;
     height: 10vh;
 }
 
@@ -45,11 +54,11 @@ body {
 }
 
 .navbar-box input.navbar-box-city {
-    width: 50%;
+    max-width: 40%;
 }
 
 .navbar-box input.navbar-box-uk {
-    width: 15%;
+    max-width: 15%;
 }
 
 .navbar-box input:focus {
@@ -66,12 +75,141 @@ body {
     background-color: #F012BE;
 }
 
+/* Error message */
+.alert {
+    width: 90%;
+    background-color: red;
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    padding: 20px;
+    line-height: 30px;
+    border-radius: 15px;
+    margin: 0 auto;
+    display: none;
+}
+
+.alert.active {
+    display: block;
+}
+
+/* Weather App Container */
 .container {
-    height: 80vh;
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    justify-content: space-around;
+    background-color: rgba(255, 255, 255, .9);
+    -webkit-box-shadow: 4px 13px 25px 1px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 4px 13px 25px 1px rgba(0, 0, 0, 0.75);
+    box-shadow: 4px 13px 25px 1px rgba(0, 0, 0, 0.75);
+    opacity: 0;
+}
+
+.container.active {
+    opacity: 1;
+}
+
+.main-header {
+    padding-bottom: 20px;
+    border-bottom: 2px solid black;
 }
 
 .main-header h2 {
     width: 100%;
-    height: 2vh;
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+.main-header p,
+.secondary p {
+    font-size: 32px;
+    margin-bottom: 5px;
+}
+
+@media (orientation: landscape) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .navbar {
+        max-height: 20vh;
+        flex-direction: row;
+        padding-top: 15px;
+        align-items: center;
+    }
+
+    .navbar-box {
+        width: 50%;
+        font-size: 1em;
+    }
+
+    .navbar h1 {
+        margin: 0;
+        margin-left: 20px;
+        padding: 0;
+        font-size: 2.2em;
+        text-align: left;
+    }
+
+    .container {
+        max-width: 40%;
+        top: 15vh;
+        left: 30%;
+        margin: 15px auto;
+    }
+
+    .main-header h2 {
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+
+    .main-header p,
+    .secondary p {
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-device-width: 1025px) {
+
+    .navbar {
+        position: relative;
+        margin: 0;
+        padding: 0;
+    }
+
+    .navbar-box {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+    }
+
+    .navbar h1 {
+        font-size: 4em;
+        line-height: 120px;
+        margin-left: 100px;
+    }
+
+    .container {
+        max-width: 30%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .main-header h2 {
+        font-size: 4rem;
+    }
+
+    .main-header p,
+    .secondary p {
+        font-size: 3rem;
+    }
+
 }
